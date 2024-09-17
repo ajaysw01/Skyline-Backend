@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LakeViewHotelApplication {
+public class SkylineViewApplication {
     public static void main(String[] args) {
-        SpringApplication.run(LakeViewHotelApplication.class, args);
+        SpringApplication.run(SkylineViewApplication.class, args);
     }
 
 }

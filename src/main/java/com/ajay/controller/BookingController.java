@@ -21,6 +21,7 @@ import java.util.List;
  *
  * @author Ajay wankhade
  */
+@CrossOrigin("http://localhost:5173")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/bookings")

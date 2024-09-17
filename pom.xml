@@ -8,7 +8,7 @@
         <version>3.2.9</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.aj</groupId>
+    <groupId>com.ajay</groupId>
     <artifactId>SkylineView</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>

@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface BookingRepository extends JpaRepository<BookedRoom,Long> {
     BookedRoom findByBookingConfirmationCode(String confirmationCode);
-
     List<BookedRoom> findByRoomId(Long roomId);
 
 }
