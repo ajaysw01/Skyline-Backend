@@ -1,6 +1,7 @@
 package com.ajay.service;
 
 import com.ajay.exception.InvalidBookingRequestException;
+import com.ajay.exception.ResourceNotFoundException;
 import com.ajay.model.BookedRoom;
 import com.ajay.model.Room;
 import com.ajay.repository.BookingRepository;
@@ -32,7 +33,8 @@ public class BookingService implements IBookingService{
 
     @Override
     public BookedRoom findByBookingConfirmationCode(String confirmationCode) {
-        return bookingRepository.findByBookingConfirmationCode(confirmationCode);
+        return bookingRepository.findByBookingConfirmationCode(confirmationCode)
+                .orElseThrow(() -> new ResourceNotFoundException("NO booking found with booking code :"+confirmationCode));
     }
 
     @Override
