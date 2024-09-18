@@ -18,12 +18,16 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roleId;
+    private Long id;
 
     private String name;
 
     @ManyToMany(mappedBy = "roles")
     private Collection<User> users = new HashSet<>();
+
+    public Role(String name) {
+        this.name = name;
+    }
 
     public void assignRoleToUser(User user) {
         user.getRoles().add(this);
@@ -35,12 +39,28 @@ public class Role {
         this.getUsers().remove(user);
     }
 
-    public void removeAllUsersFromRole(User user) {
-        if(this.getUsers() != null){
-            List<User> roleUsers = this.getUsers().parallelStream().toList();
-            roleUsers.forEach(this :: removeUserFromRole);
-        }
+//    public void removeAllUsersFromRole(User user) {
+////        if(this.getUsers() != null){
+////            List<User> roleUsers = this.getUsers().parallelStream().toList();
+////            roleUsers.forEach(this :: removeUserFromRole);
+////        }
+//        if (this.getUsers() != null) {
+//            // Convert to list to avoid ConcurrentModificationException while iterating
+//            List<User> roleUsers = this.getUsers().parallelStream().toList();
+//
+//            // Iterate over each user and remove them from this role
+//            roleUsers.forEach(this::removeUserFromRole);
+//        }
+//    }
+public void removeAllUsersFromRole() {
+    if (this.getUsers() != null) {
+        // Convert to list to avoid ConcurrentModificationException while iterating
+        List<User> roleUsers = this.getUsers().parallelStream().toList();
+
+        // Iterate over each user and remove them from this role
+        roleUsers.forEach(this::removeUserFromRole);
     }
+}
 
     public String getName(){
         return name!=null?name:"";
