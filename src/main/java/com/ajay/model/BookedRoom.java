@@ -9,30 +9,27 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 /**
- *
- * @author Ajay wankhade
- */
-@Entity
+ * @author Ajay Wankhade
+ */@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookedRoom {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bookingId;
+    private  Long bookingId;
 
-    @Column(name = "check_In")
-    private LocalDate checkedInDate;
+    @Column(name = "check_in")
+    private LocalDate checkInDate;
 
-    @Column(name = "check_Out")
-    private LocalDate checkedOutDate;
+    @Column(name = "check_out")
+    private LocalDate checkOutDate;
 
-    @Column(name = "guest_FullName")
+    @Column(name = "guest_fullName")
     private String guestFullName;
 
-    @Column(name = "guest_Email")
+    @Column(name = "guest_email")
     private String guestEmail;
 
     @Column(name = "adults")
@@ -42,7 +39,7 @@ public class BookedRoom {
     private int NumOfChildren;
 
     @Column(name = "total_guest")
-    private int totalNumberOfGuest;
+    private int totalNumOfGuest;
 
     @Column(name = "confirmation_Code")
     private String bookingConfirmationCode;
@@ -51,8 +48,8 @@ public class BookedRoom {
     @JoinColumn(name = "room_id")
     private Room room;
 
-    public void calculateTotalNumberOfGuest() {
-        this.totalNumberOfGuest = this.NumOfAdults + NumOfChildren;
+    public void calculateTotalNumberOfGuest(){
+        this.totalNumOfGuest = this.NumOfAdults + NumOfChildren;
     }
 
     public void setNumOfAdults(int numOfAdults) {
@@ -67,6 +64,5 @@ public class BookedRoom {
 
     public void setBookingConfirmationCode(String bookingConfirmationCode) {
         this.bookingConfirmationCode = bookingConfirmationCode;
-
     }
 }

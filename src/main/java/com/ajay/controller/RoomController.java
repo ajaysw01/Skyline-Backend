@@ -4,7 +4,7 @@ import com.ajay.exception.PhotoRetrievalException;
 import com.ajay.exception.ResourceNotFoundException;
 import com.ajay.model.BookedRoom;
 import com.ajay.model.Room;
-import com.ajay.reponse.RoomResponse;
+import com.ajay.response.RoomResponse;
 import com.ajay.service.BookingService;
 import com.ajay.service.IRoomService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +12,7 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,11 +25,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 /**
- *
- * @author Ajay wankhade
+ * @author Ajay Wankhade
  */
-@CrossOrigin("http://localhost:5173")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/rooms")
@@ -39,6 +39,7 @@ public class RoomController {
     private final BookingService bookingService;
 
     @PostMapping("/add/new-room")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<RoomResponse> addRoom(
             @RequestParam("photo") MultipartFile photo,
             @RequestParam("roomType")    String roomType,
@@ -98,6 +99,7 @@ public class RoomController {
 
 
     @DeleteMapping("/delete/room/{roomId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     private ResponseEntity<Void> deleteRoom(
             @PathVariable Long roomId) throws SQLException {
             roomService.deleteRoom(roomId);

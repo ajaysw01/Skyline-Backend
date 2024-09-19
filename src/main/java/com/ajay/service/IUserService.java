@@ -5,11 +5,13 @@ import com.ajay.model.User;
 
 import java.util.List;
 
-public interface IUserService {
+/**
+ * @author Simpson Alfred
+ */
 
-    User registerUsr(User user) throws UserAlreadyExistsException;
-    List<User> getAllUsers();
+public interface IUserService {
+    User registerUser(User user);
+    List<User> getUsers();
     void deleteUser(String email);
     User getUser(String email);
-
 }

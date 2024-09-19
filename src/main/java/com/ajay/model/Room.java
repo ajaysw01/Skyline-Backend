@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Ajay wankhade
+ * @author Ajay Wankhade
  */
 @Entity
 @Getter
