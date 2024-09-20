@@ -8,6 +8,13 @@ import com.ajaysw.response.BookingResponse;
 import com.ajaysw.response.RoomResponse;
 import com.ajaysw.service.IBookingService;
 import com.ajaysw.service.IRoomService;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,10 +31,16 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/bookings")
+@Tag(name = "Room Bookign Management", description = "APIs for managing hotel rooms bookings")
+
 public class BookingController {
     private final IBookingService bookingService;
     private final IRoomService roomService;
 
+
+    @Operation(summary = "Get all bookings", description = "Retrieves a list of all bookings. Only accessible by admins.")
+    @ApiResponse(responseCode = "200", description = "Bookings found",
+            content = @Content(schema = @Schema(implementation = BookingResponse.class)))
     @GetMapping("/all-bookings")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<BookingResponse>> getAllBookings(){
@@ -40,9 +53,15 @@ public class BookingController {
         return ResponseEntity.ok(bookingResponses);
     }
 
+
+    @Operation(summary = "Save a booking", description = "Creates a new booking for a specific room")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Booking saved successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid booking request")
+    })
     @PostMapping("/room/{roomId}/booking")
-    public ResponseEntity<?> saveBooking(@PathVariable Long roomId,
-                                         @RequestBody BookedRoom bookingRequest){
+    public ResponseEntity<?> saveBooking( @Parameter(description = "ID of the room to book") @PathVariable Long roomId,
+                                          @Parameter(description = "Booking details") @RequestBody BookedRoom bookingRequest){
         try{
             String confirmationCode = bookingService.saveBooking(roomId, bookingRequest);
             return ResponseEntity.ok(
@@ -53,8 +72,16 @@ public class BookingController {
         }
     }
 
+
+    @Operation(summary = "Get booking by confirmation code", description = "Retrieves a booking using its confirmation code")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Booking found",
+                    content = @Content(schema = @Schema(implementation = BookingResponse.class))),
+            @ApiResponse(responseCode = "404", description = "Booking not found")
+    })
     @GetMapping("/confirmation/{confirmationCode}")
-    public ResponseEntity<?> getBookingByConfirmationCode(@PathVariable String confirmationCode){
+    public ResponseEntity<?> getBookingByConfirmationCode(
+            @Parameter(description = "Confirmation code of the booking") @PathVariable String confirmationCode){
         try{
             BookedRoom booking = bookingService.findByBookingConfirmationCode(confirmationCode);
             BookingResponse bookingResponse = getBookingResponse(booking);
@@ -64,8 +91,14 @@ public class BookingController {
         }
     }
 
+
+    @Operation(summary = "Get bookings by user email", description = "Retrieves all bookings for a specific user")
+    @ApiResponse(responseCode = "200", description = "Bookings found",
+            content = @Content(schema = @Schema(implementation = BookingResponse.class)))
+
     @GetMapping("/user/{email}/bookings")
-    public ResponseEntity<List<BookingResponse>> getBookingsByUserEmail(@PathVariable String email) {
+    public ResponseEntity<List<BookingResponse>> getBookingsByUserEmail(
+             @PathVariable String email) {
         List<BookedRoom> bookings = bookingService.getBookingsByUserEmail(email);
         List<BookingResponse> bookingResponses = new ArrayList<>();
         for (BookedRoom booking : bookings) {
@@ -75,10 +108,15 @@ public class BookingController {
         return ResponseEntity.ok(bookingResponses);
     }
 
+
+    @Operation(summary = "Cancel a booking", description = "Cancels a booking by its ID")
+    @ApiResponse(responseCode = "204", description = "Booking cancelled successfully")
     @DeleteMapping("/booking/{bookingId}/delete")
-    public void cancelBooking(@PathVariable Long bookingId){
+    public void cancelBooking(
+            @Parameter(description = "ID of the booking to cancel") @PathVariable Long bookingId){
         bookingService.cancelBooking(bookingId);
     }
+
 
     private BookingResponse getBookingResponse(BookedRoom booking) {
         Room theRoom = roomService.getRoomById(booking.getRoom().getId()).get();

@@ -15,7 +15,7 @@ public class OpenAPIConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("SkylineView API")
+                        .title("Skyline API")
                         .version("1.0")
                         .description("API for managing hotel room bookings")
                         .contact(new Contact()

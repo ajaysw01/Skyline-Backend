@@ -8,6 +8,13 @@ import com.ajaysw.response.BookingResponse;
 import com.ajaysw.response.RoomResponse;
 import com.ajaysw.service.BookingService;
 import com.ajaysw.service.IRoomService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -33,28 +40,42 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/rooms")
+@Tag(name = "Room Management", description = "APIs for managing hotel rooms")
 public class RoomController {
     private final IRoomService roomService;
     private final BookingService bookingService;
 
     @PostMapping("/add/new-room")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+   @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @Operation(summary = "Add a new room", description = "Creates a new room in the system")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Room added successfully",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = RoomResponse.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid input"),
+            @ApiResponse(responseCode = "403", description = "Access denied")
+    })
     public ResponseEntity<RoomResponse> addNewRoom(
-            @RequestParam("photo") MultipartFile photo,
-            @RequestParam("roomType") String roomType,
-            @RequestParam("roomPrice") BigDecimal roomPrice) throws SQLException, IOException {
+            @Parameter(description = "Room photo") @RequestParam("photo") MultipartFile photo,
+            @Parameter(description = "Room type") @RequestParam("roomType") String roomType,
+            @Parameter(description = "Room price") @RequestParam("roomPrice") BigDecimal roomPrice) throws SQLException, IOException {
         Room savedRoom = roomService.addNewRoom(photo, roomType, roomPrice);
         RoomResponse response = new RoomResponse(savedRoom.getId(), savedRoom.getRoomType(),
                 savedRoom.getRoomPrice());
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/room/types")
+    @Operation(summary = "Get room types", description = "Retrieves all room types")
+    @ApiResponse(responseCode = "200", description = "List of room types retrieved successfully")    @GetMapping("/room/types")
     public List<String> getRoomTypes() {
         return roomService.getAllRoomTypes();
     }
 
     @GetMapping("/all-rooms")
+    @Operation(summary = "Get all rooms", description = "Retrieves all rooms")
+    @ApiResponse(responseCode = "200", description = "List of rooms retrieved successfully",
+            content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = RoomResponse.class)))
     public ResponseEntity<List<RoomResponse>> getAllRooms() throws SQLException {
         List<Room> rooms = roomService.getAllRooms();
         List<RoomResponse> roomResponses = new ArrayList<>();
@@ -71,6 +92,12 @@ public class RoomController {
     }
     @DeleteMapping("/delete/room/{roomId}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @Operation(summary = "Delete a room", description = "Deletes a room from the system")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Room deleted successfully"),
+            @ApiResponse(responseCode = "404", description = "Room not found"),
+            @ApiResponse(responseCode = "403", description = "Access denied")
+    })
     public ResponseEntity<Void> deleteRoom(@PathVariable Long roomId){
         roomService.deleteRoom(roomId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -78,6 +105,14 @@ public class RoomController {
 
     @PutMapping("/update/{roomId}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @Operation(summary = "Update a room", description = "Updates an existing room")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Room updated successfully",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = RoomResponse.class))),
+            @ApiResponse(responseCode = "404", description = "Room not found"),
+            @ApiResponse(responseCode = "403", description = "Access denied")
+    })
     public ResponseEntity<RoomResponse> updateRoom(@PathVariable Long roomId,
                                                    @RequestParam(required = false)  String roomType,
                                                    @RequestParam(required = false) BigDecimal roomPrice,
@@ -92,6 +127,13 @@ public class RoomController {
     }
 
     @GetMapping("/room/{roomId}")
+    @Operation(summary = "Get room by ID", description = "Retrieves a room by its ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Room found",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = RoomResponse.class))),
+            @ApiResponse(responseCode = "404", description = "Room not found")
+    })
     public ResponseEntity<Optional<RoomResponse>> getRoomById(@PathVariable Long roomId){
         Optional<Room> theRoom = roomService.getRoomById(roomId);
         return theRoom.map(room -> {
@@ -101,6 +143,13 @@ public class RoomController {
     }
 
     @GetMapping("/available-rooms")
+    @Operation(summary = "Get available rooms", description = "Retrieves available rooms based on date range and room type")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "List of available rooms retrieved successfully",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = RoomResponse.class))),
+            @ApiResponse(responseCode = "204", description = "No rooms available")
+    })
     public ResponseEntity<List<RoomResponse>> getAvailableRooms(
             @RequestParam("checkInDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)LocalDate checkInDate,
             @RequestParam("checkOutDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)LocalDate checkOutDate,

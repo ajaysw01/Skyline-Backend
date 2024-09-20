@@ -24,6 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+
 /**
  * @author Ajay Wankhade
  */
@@ -35,6 +43,13 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtUtils jwtUtils;
 
+
+    @Operation(summary = "Register a new user", description = "Registers a new user in the system")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "User registered successfully"),
+            @ApiResponse(responseCode = "409", description = "User already exists",
+                    content = @Content(schema = @Schema(implementation = String.class)))
+    })
     @PostMapping("/register-user")
     public ResponseEntity<?> registerUser(@RequestBody User user){
         try{
@@ -46,6 +61,13 @@ public class AuthController {
         }
     }
 
+
+    @Operation(summary = "Authenticate user", description = "Authenticates a user and returns a JWT token")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Authentication successful",
+                    content = @Content(schema = @Schema(implementation = JwtResponse.class))),
+            @ApiResponse(responseCode = "401", description = "Authentication failed")
+    })
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest request){
         Authentication authentication =

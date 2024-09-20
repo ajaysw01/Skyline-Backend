@@ -4,82 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9f5e36d-ac23-49b5-8afe-d4f96704c39d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/ServletInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/SkylineViewApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/controller/BookingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/controller/HealthCheck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/controller/RoleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/controller/RoomController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/exception/InternalServerException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/exception/InvalidBookingRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/exception/PhotoRetrievalException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/exception/ResourceNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/exception/RoleAlreadyExistsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/exception/UserAlreadyExistsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/model/BookedRoom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/model/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/model/Room.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/repository/BookingRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/repository/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/repository/RoomRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/request/LoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/response/BookingResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/response/JwtResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/response/RoomResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/security/CorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/security/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/security/jwt/AuthTokenFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/security/jwt/JwtAuthEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/security/jwt/JwtUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/security/user/HotelUserDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/security/user/HotelUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/service/BookingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/service/IBookingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/service/IRoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/service/IRoomService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/service/IUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/service/RoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/service/RoomService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajay/service/UserService.java" beforeDir="false" />
+    <list default="true" id="f9f5e36d-ac23-49b5-8afe-d4f96704c39d" name="Changes" comment="Completed the project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajaysw/config/OpenAPIConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ajaysw/config/OpenAPIConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajaysw/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ajaysw/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajaysw/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ajaysw/controller/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajaysw/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ajaysw/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajaysw/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ajaysw/controller/RoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajaysw/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ajaysw/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ajaysw/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ajaysw/security/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ajay/SkylineViewApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/ServletInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/SkylineViewApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/controller/BookingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/controller/HealthCheck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/controller/RoomController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/exception/InternalServerException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/exception/InvalidBookingRequestException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/exception/PhotoRetrievalException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/exception/ResourceNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/model/BookedRoom.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/model/Room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/reponse/BookingResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/reponse/RoomResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/repository/BookingRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/repository/RoomRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/service/BookingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/service/IBookingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/service/IRoomService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ajay/service/RoomService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ajay/SkylineViewApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/LakeSideHotelApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/controller/AuthController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/controller/BookingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/controller/RoleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/controller/RoomController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/exception/InternalServerException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/exception/InvalidBookingRequestException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/exception/PhotoRetrievalException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/exception/ResourceNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/exception/RoleAlreadyExistException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/exception/UserAlreadyExistsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/model/BookedRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/model/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/model/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/repository/BookingRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/repository/RoleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/repository/RoomRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/request/LoginRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/response/BookingResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/response/JwtResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/response/RoomResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/security/CorsConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/security/WebSecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/security/jwt/AuthTokenFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/security/jwt/JwtAuthEntryPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/security/jwt/JwtUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/security/user/HotelUserDetails.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/security/user/HotelUserDetailsService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/service/BookingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/service/IBookingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/service/IRoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/service/IRoomService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/service/IUserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/service/RoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/service/RoomService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dailycodework/lakesidehotel/service/UserService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +85,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.LakeSideHotelApplication.executor": "Run",
+    "Spring Boot.SkylineApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -162,11 +136,24 @@
       <option name="presentableId" value="Default" />
       <updated>1726820096637</updated>
       <workItem from="1726820097799" duration="1593000" />
-      <workItem from="1726821887545" duration="308000" />
+      <workItem from="1726821887545" duration="2899000" />
     </task>
+    <task id="LOCAL-00001" summary="Completed the project">
+      <option name="closed" value="true" />
+      <created>1726822358631</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726822358631</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Completed the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed the project" />
   </component>
 </project>

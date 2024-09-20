@@ -1,40 +1,52 @@
-#server:
-#  port: 9192
-#
-#spring:
-#  datasource:
-#    username: root
-#    password: admin
-#    url: jdbc:mysql://localhost:3306/lakeSide_hotel_db
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#  jpa:
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: update
-#      format_sql: true
-#  servlet:
-#    multipart:
-#    max-file-size: 5MB
-#    max-request-size: 5MB
-#    file-size-threshold: 2KB
-#
-#    security:
-#      jwt:
-#        secret-key: 36763979244226452948404D635166546A576D5A7134743777217A25432A462D
-#        expire-length: 3600000
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+spring:
+  application:
+    name: SkylineView
+  datasource:
+    url: jdbc:mysql://localhost:3306/skyline_db
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+auth:
+  token:
+    expirationInMils: 3600000
+    jwtSecret: eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcyNjY1NzgwOSwiaWF0IjoxNzI2NjU3ODA5fQ.9JAGcjn7OkAZnWhWL2KlYYslrTeKpzb5vdqHUV79f2M
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    tryItOutEnabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+    filter: true
+  packages-to-scan: com.ajay.controller
+
+#  http://localhost:8080/swagger-ui/index.html
+
+
+
